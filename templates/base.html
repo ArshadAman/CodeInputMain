@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  
+  <!-- tiledesk -->
+  <script type="application/javascript">
+    window.tiledeskSettings =
+    {
+      projectid: "5f528a535614f8001944e148"
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://widget.tiledesk.com/v4/launch.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'tiledesk-jssdk'));
+  </script>
+  <!-- tiledesk end -->
+
+  <title>Mad About Hacking</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="{%static 'img/apple-touch-icon.png'%}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{%static 'img/favicon-32x32.png'%}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon-16x16.png'%}">
+  <link rel="manifest" href="{%static 'img/site.webmanifest'%}">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <meta name="google" content="notranslate" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <style>
+      	p {
+  	font-family: "Noto Sans JP";
+  	font-size: 18px;
+  	}
+    body {
+      font-family: "Noto Sans JP 500";
+      font-size: 1.3em;
+      background-color: white;
+      overflow-x: hidden;
+    }
+
+    .shadow {
+      box-shadow: 0 4px 2px -2px rgb(100, 153, 140);
+    }
+
+    .btn-danger {
+      color: #fff;
+      background-color: #f00000;
+      border-color: #dc281e;
+    }
+
+    .masthead {
+
+      height: auto;
+      padding-bottom: 15px;
+      box-shadow: 0 16px 48px #E3E7EB;
+      padding-top: 10px;
+    }
+
+    #mainNav a img {
+      height: 37px;
+      width: 103px;
+      margin: 0px;
+    }
+
+    #mainNav a img:hover {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: firebrick;
+
+    }
+
+    .nav-link:hover {
+      transform: scale(0.9);
+      color: aqua;
+    }
+    .masthead {
+        background-color: indigo;
+    }
+
+  </style>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light " id="mainNav">
+    <a class="mb-2" href="/"><img src="{% static "img/logo3.jpg" %}" alt="circle-cropped" border="0"></a>
+    <!--  <a class="navbar-brand" href="#">Navbar</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {%block homeactive %}{%endblock homeactive%}">
+
+          <a class="nav-link text-light ml-1" href="/">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item" {%block blogactive %}{%endblock blogactive%}>
+          <a class="nav-link text-light" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item" {%block progactive %}{%endblock progactive%}>
+          <a class="nav-link text-light" href="/programming">Coding</a>
+        </li>
+
+        <li class="nav-item" {%block hackactive %}{%endblock hackactive%}>
+          <a class="nav-link text-light" href="/hacking">Cyber Security</a>
+        </li>
+        <li class="nav-item" {%block resourcesactive %}{%endblock resourcesactive%}>
+          <a class="nav-link text-light" href="/ebook">E-Books</a>
+        </li>
+        <li class="nav-item" {%block coursesactive %}{%endblock coursesactive%}>
+          <a class="nav-link text-light" href="/course">Courses</a>
+        </li>
+
+        <li class="nav-item" {%block contactactive %}{%endblock contactactive%}>
+          <a class="nav-link text-light" href="/contact">Contact Us</a>
+        </li>
+
+        <li class="nav-item" {%block aboutactive %}{%endblock aboutactive%}>
+          <a class="nav-link text-light" href="/about">About Us</a>
+        </li>
+      </ul>
+      <form method='get' action="/search" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search MAH" aria-label="Search" name="query"
+          id="query">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      {% if user.is_authenticated %}
+      <a class="btn btn-success ml-3" href="/logout">Logout {{request.user}}</a>
+      <a class="btn btn-primary ml-3" href="/password_change">Change Password</a>
+
+      {% else %}
+      <button type="button" class="btn btn-success ml-3" data-toggle="modal" data-target="#loginmodal">
+        Login
+      </button>
+      <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#signupmodal">
+        SignUp
+      </button>
+      {% endif %}
+    </div>
+  </nav>
+
+  {% for message in messages%}
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message</strong>{{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class=" site-heading my-4 mt-3 text-white">Mad About Hacking </h1>
+                    <p class="text-light" id="slogan">Smart Life That Matters
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+  {% block content %}
+  <!-- Content Goes here -->
+  {% endblock content %}
+
+
+  <!-- SignUpModal -->
+
+  <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupmodaltitle">SignUp Now</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action='/signup' method='post'>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Choose unique username"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+              <label for="pass1">Password</label>
+              <input type="password" class="form-control" id="pass1" name="pass1" required>
+            </div>
+            <div class="form-group">
+              <label for="pass2">Confirm Password</label>
+              <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password"
+                required>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>By signing up to this website, You agree to <a href="/terms">Terms&Conditions</a> applied.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LoginModal -->
+  <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginmodaltitle">Login Now</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action='/login' method='post'>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="loginusername" name="loginusername"
+                placeholder="Enter your Username" required>
+            </div>
+            <div class="form-group">
+              <label for="loginpass">Password</label>
+              <input type="password" class="form-control" id="loginpass" name="loginpass" required>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p><a href="/password_reset">Reset Password</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-grey">
+    <p class="m-0 text-dark text-center ">Copyright &copy; Mad About Hacking</p>
+    <p class="m-0 text-dark text-center "><a href=/privacy>Privacy Policy</a></p>
+  </footer>
+
+</body>
+
+</html>

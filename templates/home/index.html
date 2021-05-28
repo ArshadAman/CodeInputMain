@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{%block homeactive %}active{%endblock homeactive%}
+{% block content %}
+{% comment %} <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+
+<style>
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        font-family: Noto Sans JP;
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+    .masthead {
+        background-color: indigo;
+    }
+
+    .display-4 {
+        padding: 0;
+        color: #F28F3B;
+    }
+</style>
+<div class="container">
+    {% comment %} Blog post in Home Page {% endcomment %}
+    <div class="container my-2">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Mad About Hacking</h1>
+            <p class="lead">
+            <p>Mad About Hacking is a small group having a vision to provide quality <strong>free</strong> technical
+                education to everyone.</p>
+            <hr class="my-4">
+            <p>Hope to get support from Dear Reader.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="http://t.me/mah2422" target="_blank" role="button">Join Telegram
+                    Group</a>
+            </p>
+        </div>
+        <div class="jumbotron">
+            <h1 class="display-4">Explore our blog</h1>
+            <p class="lead">
+            <p>Explore our blog to gain knowledge. If you can't find the topic you are searching for, then please let us
+                know via contact form in our contact page. We will love to help you</p>
+            <hr class="my-4">
+            <p>Learn to Earn</p>
+            <p class="lead">
+                <a class="btn btn-warning btn-lg" href="/blog" role="button">Explore Blog</a>
+            </p>
+        </div>
+        <div class="jumbotron">
+            <h1 class="display-4">Learn from E-Books</h1>
+            <p class="lead">
+            <p>“If you don’t like to read, you haven’t found the right book.”</p>
+            <small>– J.K. Rowling</small>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-warning btn-lg" href="/ebook" role="button">Explore E-Books</a>
+            </p>
+        </div>
+        <div class="jumbotron">
+            <h1 class="display-4">Learn from free Courses</h1>
+            <p class="lead">
+            <p>These courses are free to all and these are the best courses that one can find on the internet.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-warning btn-lg" href="/course" role="button">Explore Courses</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

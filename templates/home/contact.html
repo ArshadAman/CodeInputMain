@@ -1,0 +1,94 @@
+<style>
+@keyframes head {
+  from {color: violet;}
+  to {color: lime;}
+
+}
+h1 {
+    
+    display:flex;
+    color: #ff0000;
+    
+    animation-name: head;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    text-shadow: 1px 1px green;
+}
+
+.formcon{
+margin:5px;
+padding:5px;
+border:2px solid lime;
+border-radius:5px;
+
+background-color:#e8c86f;
+
+    body {
+        font-family:sans-serif;
+        font-size: 18px;
+        background-color: white;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+}
+</style>
+
+{% extends "base.html" %}
+{%block contactactive %}active{%endblock contactactive%}
+{% block content %}
+<style>
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        font-family: Noto Sans JP;
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+</style>
+<div class="jumbotron jumbotron-fluid">
+
+<div class="container">
+<div class=formcon>
+<form method="post" action="/contact">
+ {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name"aria-describedby="emailHelp" placeholder="Enter Name">
+    
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="Phone Number">Phone Number</label>
+    <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone Number with Country code">
+  </div>
+  <div class="form-group">
+    <label for="Social Media">Your Social Media Handle</label>
+    <input type="text" class="form-control" id="socialmedia" name="socialmedia"aria-describedby="socialmedialink" placeholder="Your facebook or instagram or twitter or linkdin or any other social media profile link.">
+  </div>
+  <div class="form-group">
+    <label for="content">How can we assist you:</label>
+    
+    <textarea class="form-control"name="content"id="content" name="msg" cols="30" rows="5"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+{% endblock content %}

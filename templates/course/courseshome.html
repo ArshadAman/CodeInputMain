@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<script>
+    $(document).ready(function () {
+        $("#myModal").modal('show');
+    });
+</script>
+<style>
+    .coucard {
+        display: inline;
+        margin-top: 3vh;
+        margin-left: 3vh;
+    }
+
+    .coucard2 {
+        display: inline;
+        margin-top: 3vh;
+        margin-left: 45vh;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        font-family: Noto Sans JP;
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+{% if user.is_authenticated %}
+{% comment %} modal {% endcomment %}
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> I Understood</h4>
+            </div>
+            <div class="modal-body">
+                <h5>The Courses Provided does not belong to <em> Mad About Hacking</em>. These have been picked up by
+                    the Internet for spreading knowledge. <br> <br>
+                    <p>Some courses are in HINDI and some in ENGLISH languages</p>
+                </h5>
+                <small>For any copyright queries please <a href="/contact"> Contact Us</a> having subject "Courses
+                    Copyright"</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} modal end {% endcomment %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Best Handpicked Courses from YouTube</h1>
+    <p class="lead">These are The Best free courses that one can find on Youtube</p>
+    <hr class="my-4">
+    <small class="text-muted"><p>Disclaimer! These Courses Does not belong to Mad About Hacking. These Courses has been Provided to you from the
+        best youtube channels.</p> </small>
+    <small class="text-muted">A Sub to their channel will be highly appriciated.</small>
+</div>
+
+<div class="container">
+{% for course in allCourse %}
+<div class="card flex-md-row mb-4 box-shadow h-md-250">
+<div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-danger">Course By - {{course.youtube_channel}}</strong>
+              <h3 class="mb-0 my-2">
+                <a class="text-dark" href="/home/{{course.slug}}">{{course.title}}</a>
+              </h3>
+            <p class="card-text mb-auto"><div class="preview">{{course.content| safe}}</div></p>
+              <a href="/course/{{course.slug}}" role="button"class="btn btn-primary">Start Course</a>
+            </div>
+</div>
+{% endfor %}
+  </div>
+</div>
+
+{% else %}
+
+<div class="container my-3">
+    <div class="card">
+        <div class="card-header">
+            <h2>Login to Access absolutly free Courses</h2>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p> “The only person who is educated is the one who has learned how to learn …and change.”</p>
+                <footer class="blockquote-footer">Carl Rogers<cite title="Source Title"> | Source Internet</cite>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+{% endblock content %}

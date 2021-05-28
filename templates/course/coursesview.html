@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+{% load humanize %}
+<style>
+    input[type=text] {
+        border-radius: 5px;
+        border-bottom: 2px solid black;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+
+    }
+
+    .comments {
+        border: 2px solid #d1ce6d;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        color: white;
+        background-color: #d1ce6d;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <h1>{% block title %} {{ course.title }} {% endblock title %}</h1>
+                <p class=" text-muted">{{ course.youtube_channel }}</p>
+                <p class="card-text ">{{ course.content|safe }}</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list={{course.youtube_id}}" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+
+</div>
+{% endblock content %}
