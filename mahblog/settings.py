@@ -73,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mahblog.urls'
@@ -101,11 +102,23 @@ WSGI_APPLICATION = 'mahblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'd77k7uopbpsphg',
+
+        'USER': 'pqtohggcxigepj',
+
+        'PASSWORD': 'd453fed7b7b12dcba31cfc0de3f10d744d59b024021facf16a068bece58e39b7',
+
+        'HOST': 'ec2-18-206-20-102.compute-1.amazonaws.com',
+
+        'PORT': '5432',
+
     }
 }
 
+#postgres://pqtohggcxigepj:d453fed7b7b12dcba31cfc0de3f10d744d59b024021facf16a068bece58e39b7@ec2-18-206-20-102.compute-1.amazonaws.com:5432/d77k7uopbpsphg
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -147,6 +160,9 @@ STATIC_URL = '/static/'
 #Location of static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
 
 MESSAGE_TAGS={
     messages.ERROR:'danger'
