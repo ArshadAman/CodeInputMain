@@ -6,9 +6,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from blog.models import Post
 from django.contrib.auth.models import User
-# Create your views here.
-def home(request):
 
+def home(request):
     return render(request,'home/index.html')
 def about(request):
     return render(request,'home/about.html')
@@ -66,13 +65,13 @@ def handleSignup(request):
         
         #Check for wrong input
         if len(username)<4 or len(username)>15:
-                messages.warning(request," Username must be greater than 3 characters and less than 15 characters.")
+                messages.warning(request,": Username must be greater than 3 characters and less than 15 characters.")
                 return redirect('home')
         if not username.isalnum():
-                messages.warning(request," Username should only contain letters and numbers.")
+                messages.warning(request,": Username should only contain letters and numbers.")
                 return redirect('home')
         if User.objects.filter(username = request.POST['username']).exists():
-                messages.warning(request,'You Got The Error as the username already exits. Try unique username')
+                messages.warning(request,': You Got The Error as the username already exits. Try unique username')
                 return redirect('home')
         if pass1 != pass2:
                 messages.warning(request," Passwords did not Match.")
@@ -86,11 +85,12 @@ def handleSignup(request):
         myuser.last_name=lname
         myuser.save()
         # # send_mail(subject, message, from_email,to_list, fail_silently=True)
-        messages.success(request," Your Account has been created. We welcome you to Mad About Hacking.😄")
+        messages.success(request,": Your Account has been created. We welcome you to Mad About Hacking.😄")
+        login(request, myuser)
         return redirect('home')
 
     else:
-        return HttpResponse(" Some Error Occured! Please Try Again😭")
+        return HttpResponse(": Some Error Occured! Please Try Again😭")
 
 def handleLogin(request):
 
@@ -114,6 +114,6 @@ def handleLogin(request):
 
 def handleLogout(request):
     logout(request)
-    messages.success(request, " Logged Out Successfully.😊")
+    messages.success(request, ": Logged Out Successfully.😊")
     return redirect('home')
 

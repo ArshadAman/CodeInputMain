@@ -10,7 +10,7 @@ class courses(models.Model):
     slug=models.CharField(max_length=100, default='')
     category=models.CharField(max_length=255, default='')
     youtube_channel=models.CharField(max_length=100)
-    youtube_id=models.CharField(max_length=300,default='')
+    playlist_id=models.CharField(max_length=300,default='')
 
 
     def __str__(self):
